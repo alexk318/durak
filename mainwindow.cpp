@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 void MainWindow::setup() {
     Table* table = new Table();
     scene->addItem(table);
+    scene->addRect(QRectF(QPointF(0, -160), QPointF(530, -20)), QPen(Qt::black));
 
     generatePlayerCards();
 }
@@ -25,14 +26,14 @@ QGraphicsScene* MainWindow::getScene() {
 
 void MainWindow::generatePlayerCards() {
 
-    const std::array<std::string, 4> suits = {"spades", "clubs", "diamonds", "hearts"};
-    const std::array<char, 9> ranks = {'6', '7', '8', '9', 'b', 'j', 'q', 'k', 'z'};
+    const std::array<QString, 4> suits = {"spades", "clubs", "diamonds", "hearts"};
+    const std::array<QChar, 9> ranks = {'6', '7', '8', '9', 'b', 'j', 'q', 'k', 'z'};
 
     for (char i=0; i<12; i++) {
-        std::string randomSuit = suits[QRandomGenerator::global()->bounded(0, 3)];
-        char randomRank = ranks[QRandomGenerator::global()->bounded(0, 8)];
+        QString suit = suits[QRandomGenerator::global()->bounded(0, 3)];
+        QChar rank = ranks[QRandomGenerator::global()->bounded(0, 8)];
 
-        Card* card = new Card(randomSuit, randomRank);
+        Card* card = new Card(suit, rank);
         // Card size: 80x120
         // Card's position start from its up-right corner
         if (i<6) card->setPos(90*i, 0); else card->setPos((90*i)-540, -300);

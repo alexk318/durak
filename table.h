@@ -12,7 +12,9 @@ public:
 
 
 protected:
-    void dropEvent(QGraphicsSceneDragDropEvent*);
+    void update(QString suit, QString rank);
+
+    void dropEvent(QGraphicsSceneDragDropEvent* ev);
 
 };
 

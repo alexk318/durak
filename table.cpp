@@ -6,10 +6,16 @@ Table::Table() {
     this->setRect(QRectF(QPointF(0, -160), QPointF(530, -20)));
 }
 
-void Table::dropEvent(QGraphicsSceneDragDropEvent* ev) {
-    QString attackSuit = ev->mimeData()->text().split(' ')[0];
-    QString attackRank = ev->mimeData()->text().split(' ')[1];
+void Table::update(QString suit, QString rank) {
 
-    qDebug() << attackSuit << attackRank << "on table";
+}
+
+void Table::dropEvent(QGraphicsSceneDragDropEvent* ev) {
+    QString suit = ev->mimeData()->text().split(' ')[0];
+    QString rank = ev->mimeData()->text().split(' ')[1];
+
+    update(suit, rank);
+
+    qDebug() << suit << rank << "on table";
 
 }

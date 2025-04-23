@@ -4,7 +4,7 @@
 #include <QDrag>
 #include <QMimeData>
 
-Card::Card(std::string suit, char rank) {
+Card::Card(QString suit, QChar rank) {
     this->suit = suit;
     this->rank = rank;
     this->setPixmap(getImagePath());
@@ -15,12 +15,12 @@ Card::Card(std::string suit, char rank) {
 // TODO: Mouse cursor change. Qt page. 132.
 
 QString Card::getImagePath() {
-    return QString::fromStdString(":/res/" + this->suit + '_' + this->rank + ".png");
+    return ":/res/" + this->suit + '_' + this->rank + ".png";
 }
 
 void Card::mousePressEvent(QGraphicsSceneMouseEvent* ev) {
     if (ev->buttons() == Qt::LeftButton) {
-        qDebug() << "Card clicked: " << QString::fromStdString(this->suit) << QString(this->rank);
+        qDebug() << "Card clicked: " << this->suit << this->rank;
     }
 }
 
@@ -29,7 +29,7 @@ void Card::mouseMoveEvent(QGraphicsSceneMouseEvent*) {
 
     drag->setPixmap(getImagePath());
     QMimeData* mime = new QMimeData;
-    mime->setText(QString::fromStdString(this->suit) + " " + QString(this->rank));
+    mime->setText(this->suit + " " + this->rank);
     drag->setMimeData(mime);
 
     drag->setHotSpot(QPoint(40, 20)); // TODO: Hotspot = cursor's coordinates (см. стр. 132)
@@ -37,10 +37,10 @@ void Card::mouseMoveEvent(QGraphicsSceneMouseEvent*) {
 }
 
 void Card::dropEvent(QGraphicsSceneDragDropEvent* ev) {
-    QString attackSuit = ev->mimeData()->text().split(' ')[0];
-    QString attackRank = ev->mimeData()->text().split(' ')[1];
+    QString suit = ev->mimeData()->text().split(' ')[0];
+    QString rank = ev->mimeData()->text().split(' ')[1];
 
-    if ((attackSuit == QString::fromStdString(this->suit)) & (attackRank > this->rank)) {
+    if ((suit == this->suit) & (rank > this->rank)) {
         qDebug() << "Beated!";
     }
 
