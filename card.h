@@ -9,13 +9,17 @@ class Card: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 
 public:
-    Card(QString suit, QChar rank);
-
     QString suit;
-    QChar rank;
+    QString rank;
+
+    Card(QString suit, QString rank);
 
     QString getImagePath();
 
+    Card(const Card &card) {
+        suit = card.suit;
+        rank = card.rank;
+    }
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent* ev);
     void mouseMoveEvent(QGraphicsSceneMouseEvent* ev);

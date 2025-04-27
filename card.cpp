@@ -4,7 +4,7 @@
 #include <QDrag>
 #include <QMimeData>
 
-Card::Card(QString suit, QChar rank) {
+Card::Card(QString suit, QString rank) {
     this->suit = suit;
     this->rank = rank;
     this->setPixmap(getImagePath());
@@ -45,4 +45,3 @@ void Card::dropEvent(QGraphicsSceneDragDropEvent* ev) {
     }
 
 }
-

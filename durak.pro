@@ -37,8 +37,8 @@ RESOURCES += \
     res/clubs_z.png \
     res/clubs_j.png \
     res/clubs_j_2.png \
-    res/clubs_k.png \
-    res/clubs_k_2.png \
+    res/clubs_r.png \
+    res/clubs_r_2.png \
     res/clubs_q.png \
     res/clubs_q_2.png \
     res/diamonds_b.png \
@@ -53,8 +53,8 @@ RESOURCES += \
     res/diamonds_z.png \
     res/diamonds_j.png \
     res/diamonds_j_2.png \
-    res/diamonds_k.png \
-    res/diamonds_k_2.png \
+    res/diamonds_r.png \
+    res/diamonds_r_2.png \
     res/diamonds_q.png \
     res/diamonds_q_2.png \
     res/hearts_b.png \
@@ -69,8 +69,8 @@ RESOURCES += \
     res/hearts_z.png \
     res/hearts_j.png \
     res/hearts_j_2.png \
-    res/hearts_k.png \
-    res/hearts_k_2.png \
+    res/hearts_r.png \
+    res/hearts_r_2.png \
     res/hearts_q.png \
     res/hearts_q_2.png \
     res/joker1.png \
@@ -88,8 +88,8 @@ RESOURCES += \
     res/spades_z_2.png \
     res/spades_j.png \
     res/spades_j_2.png \
-    res/spades_k.png \
-    res/spades_k_2.png \
+    res/spades_r.png \
+    res/spades_r_2.png \
     res/spades_q.png \
     res/spades_q_2.png
 

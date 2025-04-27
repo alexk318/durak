@@ -4,15 +4,18 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsSceneDragDropEvent>
 
+#include "card.h"
+
 class Table: public QObject, public QGraphicsRectItem {
     Q_OBJECT
 
 public:
     Table();
 
+    std::vector<Card> cards;
 
 protected:
-    void update(QString suit, QString rank);
+    // void update(int i);
 
     void dropEvent(QGraphicsSceneDragDropEvent* ev);
 
