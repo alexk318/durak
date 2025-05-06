@@ -12,11 +12,13 @@ SOURCES += \
     card.cpp \
     main.cpp \
     mainwindow.cpp \
+    player.cpp \
     table.cpp
 
 HEADERS += \
     card.h \
     mainwindow.h \
+    player.h \
     table.h
 
 # Default rules for deployment.

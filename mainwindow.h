@@ -1,6 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "player.h"
+#include "table.h"
+
 #include <QMainWindow>
 #include <QGraphicsScene>
 
@@ -13,6 +16,8 @@ public:
 
 private:
     QGraphicsScene* scene;
+    Player* player;
+    Table* table;
 
     void setup();
     void generatePlayerCards();

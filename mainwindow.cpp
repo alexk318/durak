@@ -1,26 +1,25 @@
-#include <array>
 #include "mainwindow.h"
 #include "card.h"
-#include "table.h"
 
 #include <QPixmap>
 #include <QRandomGenerator>
 
+// Card size: 80x120
+// Card's position start from its up-right corner
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
-    scene = new QGraphicsScene(QRectF(QPointF(-20, -320), QPointF(550, 140)));
+    this->scene = new QGraphicsScene(QRectF(QPointF(-20, -320), QPointF(550, 140)));
+    this->player = new Player();
+
+    this->table = new Table();
+    this->scene->addItem(this->table);
+    this->scene->addRect(QRectF(QPointF(0, -160), QPointF(530, -20)), QPen(Qt::black, 2));
+
     setup();
 }
 
 void MainWindow::setup() {
-
-    // Initialize table
-    Table* table = new Table();
-
-    scene->addItem(table);
-    scene->addRect(QRectF(QPointF(0, -160), QPointF(530, -20)), QPen(Qt::black, 2));
-
     generatePlayerCards();
-
 }
 
 void MainWindow::generatePlayerCards() {
@@ -33,11 +32,15 @@ void MainWindow::generatePlayerCards() {
         QString rank = ranks[QRandomGenerator::global()->bounded(0, 8)];
 
         Card* card = new Card(suit, rank);
-        // Card size: 80x120
-        // Card's position start from its up-right corner
-        if (i<6) card->setPos(90*i, 0); else card->setPos((90*i)-540, -300);
 
-        scene->addItem(card);
+        if (i<6) {
+            card->setPos(90*i, 0);
+            this->player->cards.push_back(*card);
+        } else {
+            card->setPos((90*i)-540, -300);
+        }
+
+        this->scene->addItem(card);
 
     }
 
@@ -46,5 +49,5 @@ void MainWindow::generatePlayerCards() {
 }
 
 QGraphicsScene* MainWindow::getScene() {
-    return scene;
+    return this->scene;
 }

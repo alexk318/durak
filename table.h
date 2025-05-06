@@ -15,7 +15,7 @@ public:
     std::vector<Card> cards;
 
 protected:
-    // void update(int i);
+    void update(Card card);
 
     void dropEvent(QGraphicsSceneDragDropEvent* ev);
 
