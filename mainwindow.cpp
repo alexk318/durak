@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
 void MainWindow::setup() {
     generatePlayerCards();
+    tableCards_test();
 }
 
 void MainWindow::generatePlayerCards() {
@@ -46,6 +47,35 @@ void MainWindow::generatePlayerCards() {
 
     qDebug() << "Cards have been created!";
 
+}
+
+void MainWindow::tableCards_test() {
+   //for (int i=0; i<6; i++) {
+        Card* card1 = new Card("spades", "6");
+        card1->setPos(0, -150);
+        this->scene->addItem(card1);
+    /*
+        Card* card2 = new Card("spades", "7");
+        card2->setPos(0, -150);
+        this->scene->addItem(card2);
+
+        Card* card3 = new Card("spades", "8");
+        card3->setPos(0, -150);
+        this->scene->addItem(card3);
+
+        Card* card4 = new Card("spades", "9");
+        card4->setPos(0, -150);
+        this->scene->addItem(card4);
+
+        Card* card5 = new Card("spades", "b");
+        card5->setPos(0, -150);
+        this->scene->addItem(card5);
+
+        Card* card6 = new Card("spades", "j");
+        card6->setPos(0, -150);
+        this->scene->addItem(card6);
+*/
+   // }
 }
 
 QGraphicsScene* MainWindow::getScene() {

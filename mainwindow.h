@@ -21,6 +21,7 @@ private:
 
     void setup();
     void generatePlayerCards();
+    void tableCards_test();
 
 };
 
