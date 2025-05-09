@@ -12,7 +12,7 @@ class Table: public QObject, public QGraphicsRectItem {
 public:
     Table();
 
-    std::vector<Card> cards;
+    QVector<Card> cards;
 
 protected:
     void update(Card card);

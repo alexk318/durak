@@ -20,6 +20,14 @@ public:
         suit = card.suit;
         rank = card.rank;
     }
+
+    Card operator=(Card card) {
+        suit = card.suit;
+        rank = card.rank;
+
+        return *this;
+    }
+
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent* ev);
     void mouseMoveEvent(QGraphicsSceneMouseEvent* ev);

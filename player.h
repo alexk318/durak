@@ -8,7 +8,7 @@ class Player: QObject {
 public:
     Player();
 
-    std::vector<Card> cards;
+    QVector<Card> cards;
 
 
 protected:
